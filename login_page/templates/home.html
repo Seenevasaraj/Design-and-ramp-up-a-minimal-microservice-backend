@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Login module</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.4.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+
+<div class="container-fluid d-flex align-items-center justify-content-between" style="height: 60px;background: #f2f5fc;">
+	 <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <span style="font-size: 35px;font-family: cursive;font-weight: 900;padding-left: 12px;color: #ff2b8a">SeeNe</span>
+      </a>
+<nav id="navbar" class="navbar">
+	<ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+		<li><a href="{% url 'register' %}">Registration</a></li>
+		 {% if user.is_authenticated %}
+		<li><a href="{% url 'user_logout' %}">Logout</a></li>
+		{% else %}
+		<li><a href="{% url 'user_login' %}">Login</a></li>
+		{% endif %}
+
+		{% block content %}
+
+		{% endblock %}
+	</ul>		
+</nav>
+</div>
+
+ <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+
+          {% if user.is_authenticated %}
+
+          <h2 style="font-weight: 800;color: #263179">Login profile details</h2><br>
+           <h5 >Username : <b>{{ user.username }}</b></h5>
+           <h5 >Firstname : <b>{{ user.first_name }}</b></h5>
+           <h5 >Lastname : <b>{{ user.last_name }}</b></h5>
+           <h5 >Email : <b>{{ user.email }}</b></h5>
+
+          {% else %}
+
+          <h1 >We offer modern solutions for growing your business</h1>
+          <h2 >We are team of talented designers making websites with <b>Django</b></h2>
+          <div>
+            <div class="text-center text-lg-start">
+              <a href="{% url 'user_login' %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Join our team</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          {% endif %}
+
+
+        </div>
+
+        <div class="col-lg-6 hero-img">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

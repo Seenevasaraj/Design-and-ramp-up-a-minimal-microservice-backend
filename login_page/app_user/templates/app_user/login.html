@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Login module</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.4.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+
+<div class="container-fluid d-flex align-items-center justify-content-between" style="height: 60px;background: #f2f5fc;">
+	 <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <span style="font-size: 35px;font-family: cursive;font-weight: 900;padding-left: 12px;color: #ff2b8a">SeeNe</span>
+      </a>
+<nav id="navbar" class="navbar">
+	<ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+		<li><a href="{% url 'register' %}">Registration</a></li>
+	</ul>		
+</nav>
+</div>
+
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 hero-img">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+         <div class="col-lg-6 d-flex flex-column justify-content-center">
+
+          <form  method="POST" class="d-flex flex-column justify-content-center align-items-center">
+				{% csrf_token %}
+
+			 	<div>
+			 		<h5 for="username" style="font-family: cursive;color: #263179">Login username </h5>
+				    <input type="text" name="username" placeholder="username" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 20px">
+			 	</div>
+			 	<div>
+			 		<h5 for="password" style="font-family: cursive;color: #263179">Login password </h5>
+				    <input type="password" name="password" placeholder="password"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 20px">
+			 	</div>
+			 	<div>
+			 		<input type="submit" value="Login" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+			 	</div>
+			</form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

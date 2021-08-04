@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Login module</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.4.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+
+<div class="container-fluid d-flex align-items-center justify-content-between" style="height: 60px;background: #f2f5fc;">
+	 <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <span style="font-size: 35px;font-family: cursive;font-weight: 900;padding-left: 12px;color: #ff2b8a">SeeNe</span>
+      </a>
+<nav id="navbar" class="navbar">
+	<ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+	</ul>		
+</nav>
+</div>
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 hero-img">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+         <div class="col-lg-6 d-flex flex-column justify-content-center">
+
+        {% if registered %}
+		    <h4 style="font-family: cursive;color: #ff54a1;padding-bottom: 10px">Thank You For Registering</h4>
+		  {% else %}
+		  <h4 style="font-family: cursive;color: #ff54a1;padding-bottom: 10px">Fill The Form</h4>
+		    <form  method="POST" enctype="multipart/form-data" autocomplete="off" class="d-flex flex-column justify-content-center" style="margin-left: 10px" 
+		    >
+				{% csrf_token %}
+                <div class="row">
+			 	<div class="col-lg-6">
+			 		<h5 for="first_name" style="font-family: cursive;color: #263179">First name </h5>
+				    <input type="text" name="first_name" placeholder="First name" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div>
+			 	<div class="col-lg-6">
+			 		<h5 for="last_name" style="font-family: cursive;color: #263179">Last name </h5>
+				    <input type="text" name="last_name" placeholder="Last name" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div >
+			 	<div class="col-lg-6">
+			 		<h5 for="username" style="font-family: cursive;color: #263179">Username </h5>
+				    <input type="text" name="username" placeholder="username" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div>
+			 	<div class="col-lg-6">
+			 		<h5 for="email" style="font-family: cursive;color: #263179">Email </h5>
+				    <input type="text" name="email" placeholder="Email" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div>
+			 	<div class="col-lg-6">
+			 		<h5 for="password1" style="font-family: cursive;color: #263179">Password </h5>
+				    <input type="password" name="password1" placeholder="Password"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div>
+			 	<div class="col-lg-6">
+			 		<h5 for="password2" style="font-family: cursive;color: #263179">Confirm password </h5>
+				    <input type="password" name="password2" placeholder="Confirm password" class="Us"
+				        style="border: none;border-bottom: 1px solid #ff54a1;width: 300px;margin-bottom: 30px">
+			 	</div>
+			  </div>
+
+			    <ul>
+            	<li>Your password can't be too similar to your other personal info</li>
+            	<li>Your password must contain least 8 characters</li>
+            	<li>Your password can't be a commonly used password </li>
+            	<li>Your password can't be entirely numeric </li>
+              </ul>
+
+			 	<div>
+			 		<input type="submit" value="Register" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+			 	</div>
+			</form>
+
+
+		{% endif %} 
+
+        </div>
+       <!--  <div class="col-lg-2 d-flex flex-column justify-content-center">
+        	<h4>Conditions for registration</h4>
+        	<h6>Your password can't be too similar to your other personal info</h6>
+        	<h6>Your password must contain least 8 characters</h6>
+
+
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- {% if registered %}
+    <h1>Thank You For Registering</h1>
+  {% else %}
+    <h1>Fill The Form</h1>
+    <form method="POST" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{{ user_form }}
+    	{{ profil_form }}
+
+    	<input type="submit" value="Register">
+    </form>   
+{% endif %} -->
+
+
+</body>
+</html>

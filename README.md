@@ -1,2 +1,2 @@
-# Please move on master branch
- And then get a project , thank you.
+# Please move to master branch
+ to view a project , thank you.

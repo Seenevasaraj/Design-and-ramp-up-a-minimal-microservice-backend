@@ -7,6 +7,6 @@ I have created a login module by using Django web framework
 <h3>Developing Tools</h3>
 
 1.Python (backend)
-2.Html & css
+2.Html5 & css3
 3.Bootsrap
 4.Django
